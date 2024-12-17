@@ -76,7 +76,7 @@ export default function Products() {
                         <Link href={`products/${product._id}`} key={index} className=' relative col-span-12 md:col-span-4 lg:col-span-4 xl:col-span-2 gap-4 h-full  bg-white rounded-lg shadow-md'>
                             <div className=' h-max bg-white'>
                                 <Image
-                                    src={`https://ecombackend-g2bt.onrender.com/api/${product.images[0]}`}
+                                    src={`https://ecombackend-g2bt.onrender.com/api/uploads/${product.images[0]}`}
                                     alt={product.images[0]}
                                     width={200}
                                     height={120}

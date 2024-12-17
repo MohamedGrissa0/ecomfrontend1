@@ -132,7 +132,7 @@ export default function Page() {
                 <tr key={p._id} className="hover:bg-gray-100  border-b   border-gray-300 transition-colors duration-200">
                   <td className="py-4 px-6 border-b border-gray-300 text-sm">
                     <Image
-                      src={`https://ecombackend-g2bt.onrender.com//api/${p.images[0]}`}
+                      src={`https://ecombackend-g2bt.onrender.com/api/uploads/${p.images[0]}`}
                       alt={p.name}
                       width={50}
                       height={50}

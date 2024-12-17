@@ -26,7 +26,7 @@ export default function Categories() {
         {categories.map((category, index) => (
           <Link href={"category/" + category.Name} key={index} className='text-center p-2'>
             <Image
-              src={`https://ecombackend-g2bt.onrender.com/api/${category.Image}`} // Fixed template string
+              src={`https://ecombackend-g2bt.onrender.com/api/uploads/${category.Image}`} // Fixed template string
               alt={category.Name} // Corrected property name from 'name' to 'Name'
               width={200} // Set width for all images
               height={120} // Set height for all images
