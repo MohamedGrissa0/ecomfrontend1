@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['ecombackend-yn1k.onrender.com'],
+        domains: ['ecombackend-g2bt.onrender.com'],
     },
   };
   
-module.exports = nextConfig;
+  export default nextConfig;
   
