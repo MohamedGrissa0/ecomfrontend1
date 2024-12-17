@@ -79,7 +79,7 @@ export default function Page({ params }) {
                 <div className="flex flex-col space-y-6 items-center w-full lg:w-1/2">
                     {product1 && (
                         <Image
-                            src={`https://ecombackend-g2bt.onrender.com/api/uploads/${product1.images[0]}`}
+                            src={`https://ecombackend-g2bt.onrender.com/api/${product1.images[0]}`}
                             width={280}
                             height={280}
                             alt="Product Image"
@@ -158,7 +158,7 @@ export default function Page({ params }) {
                             <Link href={`products/${product._id}`} key={product._id} className='relative col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3 gap-4 h-full bg-white rounded-lg shadow-md'>
                                 <div className='h-max bg-white'>
                                     <Image
-                                        src={`https://ecombackend-g2bt.onrender.com/api/uploads/${product.images[0]}`}
+                                        src={`https://ecombackend-g2bt.onrender.com/api/${product.images[0]}`}
                                         alt={product.images[0]}
                                         width={200}
                                         height={120}

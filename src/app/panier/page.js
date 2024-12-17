@@ -115,7 +115,7 @@ export default function Page() {
                             >
                                 <div className="flex items-center w-full md:w-1/2 ">
                                     <Image
-                                        src={`https://ecombackend-g2bt.onrender.com/api/uploads/${product.images[0]}`}
+                                        src={`https://ecombackend-g2bt.onrender.com/api/${product.images[0]}`}
                                         alt={product.marque}
                                         width={100}
                                         height={100}
