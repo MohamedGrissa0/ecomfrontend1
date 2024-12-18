@@ -23,7 +23,7 @@ console.log(params)
   useEffect(()=>{
     const fetchData = async()=>{
         try{
-            const response = await axios.get(`https://ecombackend-g2bt.onrender.com/api/products/search/${params.id}`)
+            const response = await axios.get(`https://ecombackend-yn1k.onrender.com/api/products/search/${params.id}`)
             console.log(response.data)
         setProducts(response.data)
         }

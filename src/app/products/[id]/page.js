@@ -20,7 +20,7 @@ export default function Page({ params }) {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://ecombackend-g2bt.onrender.com/api/products/p/${id}`);
+                const response = await axios.get(`https://ecombackend-yn1k.onrender.com/api/products/p/${id}`);
                 setProduct(response.data);
             } catch (err) {
                 console.error(err.message);
@@ -35,7 +35,7 @@ export default function Page({ params }) {
         if (product1) {
             const fetchSimilarProducts = async () => {
                 try {
-                    const response = await axios.get(`https://ecombackend-g2bt.onrender.com/api/products/${product1.category}`);
+                    const response = await axios.get(`https://ecombackend-yn1k.onrender.com/api/products/${product1.category}`);
                     setProducts(response.data);
                 } catch (err) {
                     console.error(err.message);
@@ -79,10 +79,10 @@ export default function Page({ params }) {
                 <div className="flex flex-col space-y-6 items-center w-full lg:w-1/2">
                     {product1 && (
                         <Image
-                            src={`https://ecombackend-g2bt.onrender.com/api/${product1.images[0]}`}
+                            src={`https://ecombackend-yn1k.onrender.com/api/${product1.images[0]}`}
                             width={280}
                             height={280}
-                            alt="Product Image"
+                            alt={product1.images[0]}
                             className="w-96 h-96 lg:w-full lg:h-full bg-white object-cover mx-auto rounded-lg"
                         />
                     )}
@@ -158,7 +158,7 @@ export default function Page({ params }) {
                             <Link href={`products/${product._id}`} key={product._id} className='relative col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3 gap-4 h-full bg-white rounded-lg shadow-md'>
                                 <div className='h-max bg-white'>
                                     <Image
-                                        src={`https://ecombackend-g2bt.onrender.com/api/${product.images[0]}`}
+                                        src={`https://ecombackend-yn1k.onrender.com/api/${product.images[0]}`}
                                         alt={product.images[0]}
                                         width={200}
                                         height={120}

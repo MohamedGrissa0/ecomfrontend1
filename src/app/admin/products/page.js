@@ -21,7 +21,7 @@ export default function Page() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://ecombackend-g2bt.onrender.com/api/products");
+        const res = await axios.get("https://ecombackend-yn1k.onrender.com/api/products");
         setProducts(res.data);
       } catch (err) {
         console.error(err.message || "Failed to fetch products");
@@ -66,7 +66,7 @@ export default function Page() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`https://ecombackend-g2bt.onrender.com/api/products/${id}`);
+      const res = await axios.delete(`https://ecombackend-yn1k.onrender.com/api/products/${id}`);
       setProducts(res.data);
       toast.success("Product deleted successfully!");
     } catch (err) {
@@ -92,7 +92,7 @@ export default function Page() {
     }
 
     try {
-      const res = await axios.put(`https://ecombackend-g2bt.onrender.com/api/products/${selectedProductId}`, formData, {
+      const res = await axios.put(`https://ecombackend-yn1k.onrender.com/api/products/${selectedProductId}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -132,7 +132,7 @@ export default function Page() {
                 <tr key={p._id} className="hover:bg-gray-100  border-b   border-gray-300 transition-colors duration-200">
                   <td className="py-4 px-6 border-b border-gray-300 text-sm">
                     <Image
-                      src={`https://ecombackend-g2bt.onrender.com/api/${p.images[0]}`}
+                      src={`https://ecombackend-yn1k.onrender.com/api/${p.images[0]}`}
                       alt={p.name}
                       width={50}
                       height={50}

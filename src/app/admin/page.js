@@ -28,7 +28,7 @@ export default function Page() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("https://ecombackend-g2bt.onrender.com/api/category/");
+        const response = await axios.get("https://ecombackend-yn1k.onrender.com/api/category/");
         setCategories(response.data);
       } catch (err) {
         console.log(err);
@@ -87,7 +87,7 @@ export default function Page() {
     });
 
     try {
-      await axios.post("https://ecombackend-g2bt.onrender.com/api/products/", formData, {
+      await axios.post("https://ecombackend-yn1k.onrender.com/api/products/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Product added successfully!");
@@ -118,7 +118,7 @@ export default function Page() {
     console.log(categoryForm)
 
     try {
-      await axios.post("https://ecombackend-g2bt.onrender.com/api/category/", formData);
+      await axios.post("https://ecombackend-yn1k.onrender.com/api/category/", formData);
       toast.success("Category added successfully!");
       setCategoryForm({
         categoryName: "",
