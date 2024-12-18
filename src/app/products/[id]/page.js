@@ -155,7 +155,7 @@ export default function Page({ params }) {
                 <div className='grid grid-cols-12 gap-x-8 py-10 px-14 gap-y-6'>
                     {products.map((product) => (
                         product._id !== product1?._id && (
-                            <Link href={`products/${product._id}`} key={product._id} className='relative col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3 gap-4 h-full bg-white rounded-lg shadow-md'>
+                            <Link href={`/products/${product._id}`} key={product._id} className='relative col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3 gap-4 h-full bg-white rounded-lg shadow-md'>
                                 <div className='h-max bg-white'>
                                     <Image
                                         src={`https://ecombackend-yn1k.onrender.com/api/${product.images[0]}`}
@@ -170,7 +170,6 @@ export default function Page({ params }) {
                                     <div className='text-md p-2 font-normal tracking-widest uppercase'>{product.name}</div>
                                     <div className='text-lg p-1 font-semibold tracking-widest font-inter'>{product.brand.toUpperCase()}</div>
                                     <p className='w-full h-full font-inter text-center pb-3'>{product.name} DT</p>
-                                    
                                 </div>
                                 <div
                                     onClick={() => handleAdd(product)}

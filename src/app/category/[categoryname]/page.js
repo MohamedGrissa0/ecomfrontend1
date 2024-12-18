@@ -65,7 +65,7 @@ export default function Page({ params }) {
 
   const uniqueBrands = [...new Set(filteredProducts.map(product => product.brand))];
 
-
+ console.log(filteredProducts)
 
   return (
     <div>

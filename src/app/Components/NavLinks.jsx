@@ -1,28 +1,26 @@
 'use client'; // This is needed for components that need to maintain state in a client context
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link'; // Importing Link from next/link
-import 'animate.css';
+import axios from 'axios'; // Ensure axios is imported
 
 const NavLinks = () => {
-  // Menu items array
-  const menuItems = [
-    { name: 'Nos Produits', link: '/' },
-    { name: 'Marques', link: '/marques' },
-    { name: 'Nos Promos', link: '/promos' },
-    { name: 'Visage', link: '/category/visage' }, // Updated to include 'category'
-    { name: 'Corps', link: '/category/corps' }, // Updated to include 'category'
-    { name: 'Cheveux', link: '/category/cheveux' }, // Updated to include 'category'
-    { name: 'Bébé et maman', link: '/category/bebe-et-maman' }, // Updated to include 'category'
-    { name: 'COMPLEMENT ALIMENTAIRE', link: '/category/complement-alimentaire' }, // Updated to include 'category'
-    { name: 'Hygiène', link: '/category/hygiene' }, // Updated to include 'category'
-    { name: 'Solaire', link: '/category/solaire' }, // Updated to include 'category'
-    { name: 'clothing', link: '/category/clothing' }, // Updated to include 'category'
-    { name: 'Bio et Naturel', link: '/category/bio-et-naturel' }, // Updated to include 'category'
-    { name: 'Matériel Médical', link: '/category/materiel-medical' }, // Updated to include 'category'
-    { name: 'COFFRET', link: '/category/coffret' }, // Updated to include 'category'
-  ];
+  // State to store categories
+  const [categories, setCategories] = useState([]);
 
-  // Toggle state for mobile menu
+  // Fetch categories when component mounts
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("https://ecombackend-yn1k.onrender.com/api/category/");
+        setCategories(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  // State to handle mobile menu toggle
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,13 +29,13 @@ const NavLinks = () => {
 
         {/* Mobile toggle button */}
         <div className="flex justify-between items-center w-full md:hidden">
-          <div className="text-lg font-bold">Menu</div>
+          <div className="text-lg font-bold text-white">Menu</div>
           <button
-            aria-expanded={isOpen}
+            aria-expanded={isOpen ? 'true' : 'false'}
             className="text-white focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {/* Hamburger menu */}
+            {/* Hamburger menu icon */}
             <svg
               className="w-6 h-6"
               fill="none"
@@ -58,18 +56,23 @@ const NavLinks = () => {
         {/* Menu items */}
         <ul
           className={`${
-            isOpen ? 'flex flex-col bg-black items-center justify-center w-full animate__animated animate__bounceInRight' : 'hidden'
+            isOpen ? 'flex flex-col items-center justify-center w-full animate__animated animate__fadeInRight' : 'hidden'
           } md:flex md:justify-center w-full md:py-0`}
         >
-          {menuItems.map((item, index) => (
+          {categories.map((item, index) => (
             <li
               key={index}
-              className={`text-white my-2 md:my-0 py-2 px-2 text-sm text-center transition duration-200 ease-in-out 
-                hover:text-[#C99440]`}
+              className="text-white my-2 md:my-0 py-2 px-4 text-sm text-center transition-all duration-300 ease-in-out 
+                hover:text-[#C99440] hover:scale-105 transform"
             >
-              <Link href={item.link} className="block">
-                <span className='uppercase'>{item.name}</span>
-              </Link>
+              {/* Check if item.link exists before rendering Link */}
+              {item.Name ? (
+          <Link href={"category/"+item.Name} key={index} className='text-center p-2 cursor-pointer'>
+                  <span className="uppercase">{item.Name}</span>
+                </Link>
+              ) : (
+                <span className="uppercase">{item.Name}</span> // Fallback if link is undefined
+              )}
             </li>
           ))}
         </ul>

@@ -23,6 +23,7 @@ export default function Page() {
       try {
         const res = await axios.get("https://ecombackend-yn1k.onrender.com/api/products");
         setProducts(res.data);
+        console.log(res.data)
       } catch (err) {
         console.error(err.message || "Failed to fetch products");
       }
@@ -133,6 +134,7 @@ export default function Page() {
                   <td className="py-4 px-6 border-b border-gray-300 text-sm">
                     <Image
                       src={`https://ecombackend-yn1k.onrender.com/api/${p.images[0]}`}
+                      
                       alt={p.name}
                       width={50}
                       height={50}
