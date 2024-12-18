@@ -16,7 +16,7 @@ export default function Categories() {
 
   const fetchCategories = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/category');
+      const { data } = await axios.get('https://ecombackend-yn1k.onrender.com/api/category');
       setCategories(data);
       console.log(data)
     } catch (error) {
@@ -39,7 +39,7 @@ export default function Categories() {
     if (imageFile) formData.append('image', imageFile);
 
     try {
-      await axios.put(`http://localhost:5000/api/category/${selectedCategory._id}`, formData, {
+      await axios.put(`https://ecombackend-yn1k.onrender.com/api/category/${selectedCategory._id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -76,7 +76,7 @@ export default function Categories() {
                 <td className="px-6 py-4 text-sm text-gray-700">{category.Description}</td>
                 <td className="px-6 py-4 text-sm">
                   <img
-                      src={`http://localhost:5000/api/${category.Image}`}
+                      src={`https://ecombackend-yn1k.onrender.com/api/${category.Image}`}
                       alt={category.Name}
                     className="w-12 h-12 object-cover rounded-lg"
                   />
